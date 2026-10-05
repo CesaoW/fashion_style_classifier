@@ -1,0 +1,48 @@
+styles:
+  streetwear:
+    display_name: "Streetwear"
+    search_queries:
+      - "streetwear full body outfit"
+      - "oversized hoodie streetwear look"
+      - "urban cargo pants streetwear"
+      - "streetwear style model"
+
+  classico:
+    display_name: "Clássico"
+    search_queries:
+      - "classic suit tailoring full body"
+      - "blazer trousers elegant outfit"
+      - "smart casual blazer model"
+      - "tailored suit lookbook"
+
+  casual:
+    display_name: "Casual"
+    search_queries:
+      - "casual jeans t-shirt outfit"
+      - "everyday casual denim look full body"
+      - "casual sweater outfit"
+      - "minimalist casual fashion look"
+
+  alternativo:
+    display_name: "Alternativo"
+    search_queries:
+      - "all black goth outfit full body"
+      - "leather jacket grunge fashion"
+      - "punk alternative boots look"
+      - "dark alternative fashion model"
+
+  country:
+    display_name: "Country"
+    search_queries:
+      - "cowboy hat boots western outfit"
+      - "western denim leather jacket look"
+      - "country style boots full body outfit"
+      - "cowgirl western fashion lookbook"
+
+  boho:
+    display_name: "Boho"
+    search_queries:
+      - "boho chic maxi dress full body"
+      - "bohemian fringe suede outfit"
+      - "boho floral skirt lookbook"
+      - "bohemian style fashion model"

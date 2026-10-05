@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.env
+.venv/
+venv/
+env/
+relatorio_limpeza.csv
+
+# Dados Raspados
+data/
+!data/.gitkeep
+!data/dataset/.gitkeep
+logs/
+!logs/.gitkeep
+
+# IDEs
+.vscode/
+.idea/
+
+# Pesos e modelos do YOLO / PyTorch
+*.pt
+*.pth
+*.onnx
+*.engine
+runs/
