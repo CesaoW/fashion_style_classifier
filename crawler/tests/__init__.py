@@ -1,0 +1,1 @@
+# Test package for fashion_style_classifier

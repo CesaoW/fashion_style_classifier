@@ -12,7 +12,7 @@ logger = setup_logger("DatasetBuilder")
 
 class DatasetBuilder:
     """
-    Etapa E e F — Rotulação e Estruturação do Dataset Final:
+    Etapa F — Estruturação do Dataset Final:
     - Organiza as imagens filtradas por estilo (weak labels).
     - Divisão estratificada das imagens:
         - Treino (70%)

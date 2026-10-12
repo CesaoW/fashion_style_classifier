@@ -19,35 +19,35 @@ logger = setup_logger("MainPipeline")
 def run_pipeline(step: str, target_style: str = None, max_images: int = 200):
     styles_to_process = [target_style] if target_style else list(STYLES.keys())
 
-    # Step 1: Crawling (Etapas A & B - Pinterest via gallery-dl)
+    # Etapa A & B: Crawling (Pinterest via gallery-dl)
     if step in ["crawl", "all"]:
         logger.info("=== [ETAPAS A & B] Raspagem de Moda do Pinterest via gallery-dl ===")
         crawler = FashionCrawler(max_images_per_style=max_images)
         for style in styles_to_process:
             crawler.crawl_style(style)
 
-    # Step 2: Cleaning & Deduplication (Etapa C)
+    # Etapa C: Cleaning & Deduplication
     if step in ["clean", "all"]:
         logger.info("=== [ETAPA C] Sanitização e Deduplicação Global (MD5 + pHash/dHash) ===")
         deduper = Deduplicator()
         deduper.run_all()
 
-    # Step 3: YOLO Smart Filtering (Etapa D)
+    # Etapa D: YOLO Smart Filtering
     if step in ["filter", "all"]:
         logger.info("=== [ETAPA D] Filtragem Inteligente com YOLO (Detecção de Pessoas / Outfits) ===")
         yolo_filter = YOLOFilter()
         for style in styles_to_process:
             yolo_filter.process_style(style)
 
-    # Step 4: OCR & Conflict Cleaning (Etapa G)
-    if step in ["ocr", "all"]:
-        logger.info("=== [ETAPA E] Detecção de Textos Sobrepostos (OCR) e Rótulos Conflitantes ===")
+    # Etapa E: OCR & Conflict Cleaning (Quality Control / Labeling)
+    if step in ["label", "all"]:
+        logger.info("=== [ETAPA E] Controle de Qualidade: OCR e Rótulos Conflitantes ===")
         ocr_cleaner = OCRDatasetCleaner()
         ocr_cleaner.process_cleaning()
 
-    # Step 5: Dataset Splitting & Manifest (Etapas E & F)
+    # Etapa F: Dataset Splitting & Manifest
     if step in ["split", "all"]:
-        logger.info("=== [ETAPAS F] Organização e Divisão Estratificada do Dataset (70/15/15) ===")
+        logger.info("=== [ETAPA F] Organização e Divisão Estratificada do Dataset (70/15/15) ===")
         builder = DatasetBuilder()
         builder.build_dataset()
 
@@ -59,8 +59,8 @@ def main():
         "--step",
         type=str,
         default="all",
-        choices=["crawl", "clean", "filter", "split", "ocr", "all"],
-        help="Etapa a ser executada: crawl (A/B), clean (C), filter (D), ocr (E), split (F) ou all."
+        choices=["crawl", "clean", "filter", "label", "split", "all"],
+        help="Etapa a ser executada: crawl (A/B), clean (C), filter (D), label (E - OCR/QC), split (F) ou all."
     )
     parser.add_argument(
         "--style",

@@ -46,6 +46,7 @@ python main.py --step all --max-images 50
 ### 3. Executar Etapas Individuais
 - **Raspagem (Etapas A/B)**: `python main.py --step crawl`
 - **Deduplicação (Etapa C)**: `python main.py --step clean`
-- **Filtragem YOLOv8 (Etapa D)**: `python main.py --step filter`
-- **Divisão do Dataset (Etapas E/F)**: `python main.py --step split`
+- **Filtragem YOLO (Etapa D)**: `python main.py --step filter`
+- **Controle de Qualidade OCR (Etapa E)**: `python main.py --step label`
+- **Divisão do Dataset (Etapa F)**: `python main.py --step split`
 - **Processar um estilo específico**: `python main.py --step all --style streetwear`

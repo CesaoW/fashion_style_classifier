@@ -14,7 +14,7 @@ logger = setup_logger("OCRCleaner")
 
 class OCRDatasetCleaner:
     """
-    Etapa G — Limpeza por OCR e Rótulos Conflitantes:
+    Etapa E — Controle de Qualidade (OCR e Rótulos Conflitantes):
     - Detecta imagens com textos sobrepostos significativos (banners, colagens, títulos) que prejudicam o treino.
     - Detecta imagens com conteúdo idêntico (MD5) presentes em múltiplos estilos ou splits.
     - Move as imagens filtradas para data/dataset_revisao/<split>/<estilo>/
@@ -92,7 +92,9 @@ class OCRDatasetCleaner:
 
     def process_cleaning(self) -> Dict[str, Any]:
         self.revisao_dir.mkdir(parents=True, exist_ok=True)
-        report_path = ROOT_DIR / "relatorio_limpeza.csv"
+        logs_dir = ROOT_DIR / "logs"
+        logs_dir.mkdir(parents=True, exist_ok=True)
+        report_path = logs_dir / "relatorio_limpeza.csv"
 
         logger.info("Mapeando arquivos para checagem de MD5 (Rótulos Conflitantes)...")
         md5_map: Dict[str, List[Tuple[str, str, Path]]] = {} # md5 -> [(split/categoria, estilo, path)]

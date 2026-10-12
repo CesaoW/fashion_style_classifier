@@ -6,14 +6,21 @@ __pycache__/
 .venv/
 venv/
 env/
-relatorio_limpeza.csv
 
 # Dados Raspados
 data/
 !data/.gitkeep
+!data/raw/.gitkeep
+!data/cleaned/.gitkeep
+!data/filtered/.gitkeep
 !data/dataset/.gitkeep
+!data/dataset/train/.gitkeep
+!data/dataset/val/.gitkeep
+!data/dataset/test/.gitkeep
+!data/dataset_revisao/.gitkeep
 logs/
 !logs/.gitkeep
+!logs/relatorio_limpeza.csv
 
 # IDEs
 .vscode/
